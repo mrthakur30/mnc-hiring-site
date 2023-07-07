@@ -10,17 +10,24 @@
    
     <div class="dashboard" id="authorizedContainer"   >
         
-       <div class="header"></div>
-       <div class="main">
+       <div class="header">
+          <a href="/home.html">Home</a>
+          <button class="logout">Log Out</button>
+          <button class="saved" onclick="toggleSaved()">Saved</button>
+       </div>
+       <div id="main">
           <div class="search">
                <input type="text" name="location" id="searchLocation" placeholder="Location">
                <input type="text" name="role" id="searchRole" placeholder="Job Role">
           </div>
 
-          <ul id="candidateList"></ul>
+          <ul id="candidatesList"></ul>
 
        </div>
-       <div class="footer"></div>
+       <div id="saved" style="display: none;">
+        <h2>Saved Candidates List</h2>
+          <ul id="savedList"></ul>
+       </div>
     </div>
 
     <script src="users.js"></script>

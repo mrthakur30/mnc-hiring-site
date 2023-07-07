@@ -1,92 +1,109 @@
   
+    var savedCandidates = [] ;
+    
+    var allCandidates= [] ;
     var searchLocation = document.getElementById("searchLocation");
     searchLocation.addEventListener("input", getCandidateByLocation);
 
     
     var searchRole = document.getElementById("searchRole");
     searchRole.addEventListener("input", getCandidateByRole); 
+  
+    
+   
 
   const getCandidates = async () => {
     const response = await fetch("https://dummyjson.com/users");
     const data = await response.json();
     const candidates = data.users;
+    allCandidates = candidates;
     return candidates;
   }
   
-  async function displayUsers() {
-    var candidateList = document.getElementById("candidateList");
-    candidateList.innerHTML = "";
-  
-    try {
-      var candidates = await getCandidates();
-      console.log(candidates);
-  
-      candidates.forEach(function(user) {
-        var li = document.createElement("li");
-        var textNode = document.createTextNode("Name: " +user.firstName+" "+user.lastName+ ", Location: " + user.address.city ,"Role: " +user.company.title );
-        var roleNode = document.createTextNode(" Role: " +user.company.title );
-        li.appendChild(textNode);
-        li.appendChild(roleNode);
-        candidateList.appendChild(li);
+   function displayCandidates(candidates) {
+
+    var candidatesList = document.getElementById("candidatesList");
+    candidatesList.innerHTML = "";
+
+      candidates.map((user)=> {
+        var candidateCard = document.createElement("div");
+        candidateCard.classList.add("candidate-card");
+        candidateCard.innerHTML = "<h3>" + user.firstName+" "+user.lastName + "</h3>" +
+          "<p>Location: " + user.address.city + "</p>" +
+          "<p>Job Role: " + user.company.title + "</p>" +
+          "<button onclick='saveCandidate(\"" + user.id + "\")'>Save</button>";
+        candidatesList.appendChild(candidateCard);
       });
-    } catch (error) {
-      console.log("Error:", error);
-    }
+    
   }
   
-  
-  displayUsers();
+  async function getAllCandidates(){
+    var candidates = await getCandidates();
+    console.log(candidates);
+    displayCandidates(candidates);
+  }
 
   async function getCandidateByRole(){
  
      var role = document.getElementById("searchRole").value.toLowerCase();
 
-     var searchResults = document.getElementById("candidateList");
-     searchResults.innerHTML = "";
-     try {
-       var candidates = await getCandidates();
+     var candidates = await getCandidates();
        
-       candidates = candidates.filter((user)=>{
-            return user.company.title.toLowerCase().includes(role);
-       })
+     candidates = candidates.filter((user)=>{
+          return user.company.title.toLowerCase().includes(role);
+     })
 
-       candidates.forEach(function(user) {
-         var li = document.createElement("li");
-         var textNode = document.createTextNode("Name: " +user.firstName+" "+user.lastName+ ", Location: " + user.address.city ,"Role: " +user.company.title );
-         var roleNode = document.createTextNode(" Role: " +user.company.title );
-         li.appendChild(textNode);
-         li.appendChild(roleNode);
-         searchResults.appendChild(li);
-       });
-     } catch (error) {
-       console.log("Error:", error);
-     }
+     displayCandidates(candidates);
   }
 
   async function getCandidateByLocation(){
-
-    var location = document.getElementById("searchLocation").value.toLowerCase();
-
-    var searchResults = document.getElementById("candidateList");
-    searchResults.innerHTML = "";
-    try {
+      var location = document.getElementById("searchLocation").value.toLowerCase();
       var candidates = await getCandidates();
       
       candidates = candidates.filter((user)=>{
            return user.address.city.toLowerCase().includes(location);
       })
 
-      candidates.forEach(function(user) {
-        var li = document.createElement("li");
-        var textNode = document.createTextNode("Name: " +user.firstName+" "+user.lastName+ ", Location: " + user.address.city ,"Role: " +user.company.title );
-        var roleNode = document.createTextNode(" Role: " +user.company.title );
-        li.appendChild(textNode);
-        li.appendChild(roleNode);
-        searchResults.appendChild(li);
+     displayCandidates(candidates);
+  }
+  getAllCandidates();
+  
+  function toggleSaved(){
+     
+     const savedSection = document.getElementById("saved");
+     const mainSection = document.getElementById("main");
+     savedSection.style.display = "block";
+     mainSection.style.display = mainSection.style.display==="block"?"none" :"block";
+  }
+  
+
+  function displaySavedCandidates(){
+    var savedList = document.getElementById("savedList");
+    savedList.innerHTML = "";
+
+      savedCandidates.map((user) => {
+        var candidateCard = document.createElement("div");
+        candidateCard.classList.add("candidate-card");
+        candidateCard.innerHTML = "<h3>" + user.firstName+" "+user.lastName + "</h3>" +
+          "<p>Location: " + user.address.city + "</p>" +
+          "<p>Job Role: " + user.company.title + "</p>"+
+          "<button onclick='removeCandidate(\"" + user.id + "\")'>Remove</button>";
+        savedList.appendChild(candidateCard);
       });
-    } catch (error) {
-      console.log("Error:", error);
-    }
+  }
+ 
+  function saveCandidate(id){
+    
+     if(savedCandidates.includes(allCandidates[id-1])) return ;
+     savedCandidates.push(allCandidates[id-1]);
+    
+     displaySavedCandidates();
+     console.log(savedCandidates);
   }
 
-  
+  function removeCandidate(id){
+    savedCandidates = savedCandidates.filter((item) => {
+        return item.id !== +id; 
+    });
+    displaySavedCandidates();
+  }
