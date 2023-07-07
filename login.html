@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <title>Sign Up and Sign In Form</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap" rel="stylesheet">
 
 </head>
-<body>
+<body class="login" >
   <div class="container">
     <h2>Sign Up</h2>
     <form id="signupForm" onsubmit="signup(event)">
@@ -16,7 +19,7 @@
       <input type="password" id="signupPassword" placeholder="Password" required>
       <input type="submit" value="Sign Up">
     </form>
-    <button class="toggle-button" onclick="toggleForm()">Sign In Instead</button>
+    <button class="toggle-button" onclick="toggleForm()">Already have an account ? Sign In</button>
   </div>
 
   <div class="container" style="display: none;" id="signinContainer">
@@ -26,7 +29,7 @@
       <input type="password" id="signinPassword" placeholder="Password" required>
       <input type="submit" value="Sign In">
     </form>
-    <button class="toggle-button" onclick="toggleForm()">Sign Up Instead</button>
+    <button class="toggle-button" onclick="toggleForm()">Create a new account ? Sign Up</button>
   </div>
 
   <script src="login.js"></script>
