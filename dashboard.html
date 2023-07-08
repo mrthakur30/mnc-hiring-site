@@ -15,26 +15,31 @@
     <div class="dashboard" id="authorizedContainer"   >
         
        <div class="header">
-          <a href="/home.html">Home</a>
-          <button class="logout">Log Out</button>
-          <button class="saved" onclick="toggleSaved()">Saved</button>
+         <a href="http://127.0.0.1:5500/home.html"> <button class="home-btn">Home</button></button></a>
+          <button class="logout-btn" onclick=logout()>Log Out</button>
+          <button class="saved-btn" id="savedButton" onclick="toggleSaved()">Saved</button>
        </div>
-       <div id="main">
+       <div id="main" class="main-dashboard">
           <div class="search">
-               <input type="text" name="location" id="searchLocation" placeholder="Location">
-               <input type="text" name="role" id="searchRole" placeholder="Job Role">
+               <input class="input" type="text" name="location" id="searchLocation" placeholder="Location">
+               <input class="input" type="text" name="role" id="searchRole" placeholder="Job Role">
           </div>
-
+          <h2 class="feature-heading">Candidates List</h2>
           <ul id="candidatesList"></ul>
 
        </div>
-       <div id="saved" style="display: none;">
-        <h2>Saved Candidates List</h2>
-          <ul id="savedList"></ul>
+       <div class="main-dashboard" id="saved" style="display: none;">
+        <h2 class="feature-heading">Saved Candidates List</h2>
+         <ul  id="savedList"></ul>
        </div>
+       
     </div>
-
-    <script src="users.js"></script>
+    <div class="bottom">
+      <h2 class="bottom-heading">*****</h2>
+      <p class="bottom-text">©2023 MNC Hiring. All rights reserved.</p>
+    </div>
+    <script src="logout.js"></script>
+    <script src="candidates.js"></script>
 
 </body>
 </html>

@@ -27,11 +27,11 @@
 
       candidates.map((user)=> {
         var candidateCard = document.createElement("div");
-        candidateCard.classList.add("candidate-card");
-        candidateCard.innerHTML = "<h3>" + user.firstName+" "+user.lastName + "</h3>" +
-          "<p>Location: " + user.address.city + "</p>" +
-          "<p>Job Role: " + user.company.title + "</p>" +
-          "<button onclick='saveCandidate(\"" + user.id + "\")'>Save</button>";
+        candidateCard.classList.add("candidate-cards");
+        candidateCard.innerHTML = "<div class='candidate-card'><img class='candidate-img' src="+user.image+"><div><h3 class='candidate-name'>" + user.firstName+" "+user.lastName + "</h3>" +
+          "<p class='candidate-info'>Location: " + user.address.city + "</p>" +
+          "<p class='candidate-info'>Job Role: " + user.company.title + "</p></div>" +
+          "<button class='save-btn' onclick='saveCandidate(\"" + user.id + "\")'>Save</button></div>";
         candidatesList.appendChild(candidateCard);
       });
     
@@ -72,8 +72,10 @@
      
      const savedSection = document.getElementById("saved");
      const mainSection = document.getElementById("main");
-     savedSection.style.display = "block";
-     mainSection.style.display = mainSection.style.display==="block"?"none" :"block";
+     const savedButton = document.getElementById("savedButton");
+     savedButton.style.color = savedButton.style.color==="yellow" ? "white" : "yellow";
+     savedSection.style.display =  savedSection.style.display==="flex"?"none" :"flex";
+     mainSection.style.display = mainSection.style.display==="none"?"flex" :"none";
   }
   
 
@@ -83,11 +85,11 @@
 
       savedCandidates.map((user) => {
         var candidateCard = document.createElement("div");
-        candidateCard.classList.add("candidate-card");
-        candidateCard.innerHTML = "<h3>" + user.firstName+" "+user.lastName + "</h3>" +
-          "<p>Location: " + user.address.city + "</p>" +
-          "<p>Job Role: " + user.company.title + "</p>"+
-          "<button onclick='removeCandidate(\"" + user.id + "\")'>Remove</button>";
+        candidateCard.classList.add("candidate-cards");
+        candidateCard.innerHTML = "<div class='candidate-card'><img class='candidate-img' src="+user.image+"><div><h3 class='candidate-name'>" + user.firstName+" "+user.lastName + "</h3>" +
+          "<p class='candidate-info'>Location: " + user.address.city + "</p>" +
+          "<p class='candidate-info'>Job Role: " + user.company.title + "</p></div>" +
+          "<button class='save-btn' onclick='removeCandidate(\"" + user.id + "\")'>Remove</button>";
         savedList.appendChild(candidateCard);
       });
   }
