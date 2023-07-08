@@ -65,7 +65,7 @@
         .then((userCredential) => {
             const user = userCredential.user;
             console.log(user);
-            window.location.href = "http://127.0.0.1:5500/dashboard.html";
+            window.location.href = "https://animated-paletas-6e9ffe.netlify.app/dashboard.html";
             alert("Your account has been created!");
         })
         .catch((error) => {
@@ -83,7 +83,7 @@
         .then((userCredential) => {
            const user = userCredential.user;
             alert("You have signed in successfully!");
-            window.location.href = "http://127.0.0.1:5500/dashboard.html";
+            window.location.href = "https://animated-paletas-6e9ffe.netlify.app/dashboard.html";
         })
         .catch((error) => {
             const errorCode = error.code;
@@ -97,7 +97,7 @@
         event.preventDefault();
         await signOut(auth);
         user = null;
-        window.location.href = "http://127.0.0.1:5500/login.html";
+        window.location.href = "https://animated-paletas-6e9ffe.netlify.app/login.html";
     };
 
 
