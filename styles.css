@@ -93,7 +93,7 @@ body {
   border-radius: 5px;
 }
 
- .feature-heading {
+.feature-heading {
   font-family: "Inter", sans-serif;
   font-size: 5vh;
   margin-bottom: 10px;
@@ -200,7 +200,6 @@ body {
   padding-top: 20px;
 }
 
-
 .main-dashboard {
   padding-top: 10vh;
   font-family: "Inter", sans-serif;
@@ -212,8 +211,7 @@ body {
   align-items: center;
 }
 
-.saved{
- 
+.saved {
   padding-top: 10vh;
   min-height: 100%;
   font-family: "Inter", sans-serif;
@@ -235,20 +233,20 @@ body {
   font-family: "Inter", sans-serif;
 }
 
-.candidate-card{
-    display: flex;
-    height: 25vh;
-    width:  40vw ;
-     justify-content: space-around;
-      align-items: center;
-     padding: 10px;
-     margin: 20px;
-     border-top: #000000 1px solid;
+.candidate-card {
+  display: flex;
+  height: 25vh;
+  width: 40vw;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  margin: 20px;
+  border-top: #000000 1px solid;
 }
 
-.candidate-img{
-    height: 20vh;
-    border-radius: 5px;
+.candidate-img {
+  height: 20vh;
+  border-radius: 5px;
 }
 
 .search {
@@ -259,9 +257,9 @@ body {
   justify-content: space-evenly;
 }
 
-a{
-   color: white;
-   text-decoration: none;
+a {
+  color: white;
+  text-decoration: none;
 }
 
 .saved-btn {
@@ -293,10 +291,9 @@ a{
   color: #fff;
   font-size: large;
   border-radius: 20px;
-  
+
   cursor: pointer;
 }
-
 
 .home-btn {
   background-color: #3a4355;

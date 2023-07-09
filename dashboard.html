@@ -1,45 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="styles.css">
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 
-    <title>Dashboard</title>
+   <title>Dashboard</title>
 </head>
-<body>
-   
-    <div class="dashboard" id="authorizedContainer"   >
-        
-       <div class="header">
-         <a href="https://animated-paletas-6e9ffe.netlify.app"> <button class="home-btn">Home</button></button></a>
-          <button class="logout-btn" onclick=logout()>Log Out</button>
-          <button class="saved-btn" id="savedButton" onclick="toggleSaved()">Saved</button>
-       </div>
-       <div id="main" class="main-dashboard">
-          <div class="search">
-               <input class="input" type="text" name="location" id="searchLocation" placeholder="Location">
-               <input class="input" type="text" name="role" id="searchRole" placeholder="Job Role">
-          </div>
-          <h2 class="feature-heading">Candidates List</h2>
-          <ul id="candidatesList"></ul>
 
-       </div>
-       <div class="main-dashboard" id="saved" style="display: none;">
-        <h2 class="feature-heading">Saved Candidates List</h2>
-         <ul  id="savedList"></ul>
-       </div>
-       
-    </div>
-    <div class="bottom">
+<body>
+
+   <div class="dashboard" id="authorizedContainer">
+
+      <div class="header">
+         <a href="https://animated-paletas-6e9ffe.netlify.app"> <button class="home-btn">Home</button></button></a>
+         <button class="logout-btn" onclick=logout()>Log Out</button>
+         <button class="saved-btn" id="savedButton" onclick="toggleSaved()">Saved</button>
+      </div>
+      <div id="main" class="main-dashboard">
+         <div class="search">
+            <input class="input" type="text" name="location" id="searchLocation" placeholder="Location">
+            <input class="input" type="text" name="role" id="searchRole" placeholder="Job Role">
+         </div>
+         <h2 class="feature-heading">Candidates List</h2>
+         <ul id="candidatesList"></ul>
+
+      </div>
+      <div class="main-dashboard" id="saved" style="display: none;">
+         <h2 class="feature-heading">Saved Candidates List</h2>
+         <ul id="savedList"></ul>
+      </div>
+
+   </div>
+   <div class="bottom">
       <h2 class="bottom-heading">*****</h2>
       <p class="bottom-text">©2023 MNC Hiring. All rights reserved.</p>
-    </div>
-    <script src="logout.js"></script>
-    <script src="candidates.js"></script>
+   </div>
+   <script src="logout.js"></script>
+   <script src="candidates.js"></script>
 
 </body>
+
 </html>
